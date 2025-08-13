@@ -6,6 +6,9 @@
   <title>Unglaubliches Selbstbewusstsein</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     .feature {
     border: 2px solid #40E0D0; /* Türkis */
@@ -13,6 +16,7 @@
     border-radius: 0;           /* Ecken begradigen, falls gewünscht */
     
   }
+
   </style>
 </head>
 <body class="bg-white text-gray-900 font-sans">
@@ -23,15 +27,16 @@
   <!-- Farbverlauf mit weniger Lila -->
   <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/40 to-purple-900/50 opacity-85"></div>
 
-  <!-- Inhalt -->
-  <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
-    <h1 class="text-2xl font-semibold tracking-wide text-red-500 drop-shadow-sm mb-2">
-      Unchainyourstrengths.digital 
-    </h1>
-    <h3 class="text-lg font-medium text-gray-400 tracking-wide">
-      Unglaubliches Selbstbewusstsein
-    </h3>
-  </div>
+ 
+<!-- Inhalt -->
+<div class="relative z-10 text-center px-4 max-w-3xl mx-auto py-8">
+  <h1 class="text-3xl font-medium tracking-wide text-red-500 drop-shadow-md mb-2">
+    Unchainyourstrengths.digital
+  </h1>
+  <p class="text-lg text-gray-700 font-medium">
+    For a fulfilled life in your 20s, creating your reality
+  </p>
+</div>
 </header>
 
 
@@ -48,17 +53,18 @@
   <div class="max-w-7xl mx-auto">
 
     <!-- Einleitung -->
-    <section class="bg-white px-4 py-16">
-      <p class="text-lg text-cyan-700 text-center leading-relaxed max-w-3xl mx-auto">
-        Selbstbewusstsein ist kein Geschenk, es ist eine Entscheidung.  
-        Es ist die stille Kraft, die in dir wohnt – bereit, entfesselt zu werden.
-      </p>
-    </section>
+ <section class="bg-white px-4 py-16">
+  <p class="text-center leading-relaxed max-w-3xl mx-auto">
+    <span class="text-cyan-700 text-lg font-semibold">Selbstbewusstsein ist kein Geschenk – es ist deine Entscheidung.</span><br><br>
+    Spür die Kraft in dir. Wage den ersten Schritt und spüre, wie du wächst. Echte innere Stärke entsteht oft durch kleine tägliche Entscheidungen – nicht nur durch große Erfolge. Jeder bewusste Schritt, den du für dich machst, stärkt dein Vertrauen und macht dich resilienter.
+  </p>
+</section>
+
 
     <!-- Container 1: Bild rechts -->
     <section class="bg-white px-4 py-16 flex flex-col md:flex-row items-center gap-8">
       <div class="flex-1">
-        <h2 class="text-2xl font-semibold mb-4">Stehe fest wie ein Fels</h2>
+        <h2 class="text-2xl font-semibold mb-4">Bleibe in deiner Mitte</h2>
         <p class="leading-relaxed">
           Egal wie stark der Wind weht – wer in seiner Mitte ruht, den wirft nichts um.  
           Selbstvertrauen beginnt, wenn du aufhörst, dich klein zu machen,  
@@ -85,7 +91,11 @@
     </video>
   </div>
   <div class="flex-1 order-1 md:order-2">
-    <h2 class="text-2xl font-semibold mb-4">Deine Stimme zählt</h2>
+    <h2 
+  class="text-2xl font-semibold mb-4"
+>
+  Deine Stimme zählt
+</h2>
     <p class="leading-relaxed">
       Sprich klar. Sprich mutig. Sprich, auch wenn andere schweigen.  
       Selbstbewusstsein bedeutet nicht, der Lauteste zu sein –  
@@ -98,7 +108,7 @@
     <!-- Großer Farb-Container -->
     <section class="bg-blue-600 text-white px-4 py-16 rounded-lg">
       <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold mb-4">Du bist genug.</h2>
+        <h2 class="reveal delay-100 text-3xl font-bold mb-4">Du bist genug.</h2>
         <p class="text-lg leading-relaxed">
           Du brauchst keine Erlaubnis, um groß zu träumen.  
           Du musst dich nicht anpassen, um akzeptiert zu werden.  
@@ -261,7 +271,7 @@
   <!-- Container 1: Video rechts -->
 <section class="bg-white px-6 py-12 flex flex-col md:flex-row items-center gap-8">
   <div class="flex-1">
-    <h2 class="text-2xl font-semibold mb-4">Dein Ziel. Dein Weg. Deine Regeln.</h2>
+    <h2 class="reveal delay-100 text-2xl font-semibold mb-4">Dein Ziel. Dein Weg. Deine Regeln.</h2>
     <p class="leading-relaxed">
     <p class="leading-relaxed">
     Kenne dein Ziel und folge deiner Bestimmung – ohne dich zu rechtfertigen und ohne um Erlaubnis zu fragen.  
@@ -365,7 +375,6 @@
       }));
     });
   </script>
-
 
 
 </body>
