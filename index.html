@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unglaubliches Selbstbewusstsein</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
     .feature {
     border: 2px solid #40E0D0; /* Türkis */
@@ -21,13 +22,14 @@
 
 
 
-  <!-- Mittelbereich -->
-  <div class="max-w-7xl mx-auto shadow-lg">
 
     <!-- Header -->
-    <header class="bg-gray-100 px-4 py-16">
+    <header class="bg-gray-900 text-gray-300 py-16">
       <h1 class="text-3xl font-bold text-center">Unglaubliches Selbstbewusstsein</h1>
     </header>
+
+      <!-- Mittelbereich -->
+  <div class="max-w-7xl mx-auto">
 
     <!-- Einleitung -->
     <section class="bg-white px-4 py-16">
@@ -129,11 +131,7 @@
           <div>
             <h3 class="text-xl font-bold mb-0">Mut</h3>
             <p>Mut bedeutet nicht, keine Angst zu haben – sondern zu handeln, obwohl sie da ist.
-              Wissen, was du willst, ist der erste Schritt zu unerschütterlichem Selbstbewusstsein.
-              Du brauchst keine Erlaubnis, um groß zu träumen.  
-              Du musst dich nicht anpassen, um akzeptiert zu werden.  
-              Dein Wert hängt nicht davon ab, was andere denken –  
-              sondern davon, dass du an dich selbst glaubst.
+              
             </p>
           </div>
         </div>
@@ -143,11 +141,7 @@
             <h3 class="text-xl font-bold mb-0">Fokus</h3>
             <p>Je klarer dein Fokus, desto weniger kann dich das Außen aus der Ruhe bringen.
               Mut bedeutet nicht, keine Angst zu haben – sondern zu handeln, obwohl sie da ist.
-              Wissen, was du willst, ist der erste Schritt zu unerschütterlichem Selbstbewusstsein.
-              Du brauchst keine Erlaubnis, um groß zu träumen.  
-              Du musst dich nicht anpassen, um akzeptiert zu werden.  
-              Dein Wert hängt nicht davon ab, was andere denken –  
-              sondern davon, dass du an dich selbst glaubst.
+              
             </p>
           </div>
         </div>
@@ -157,11 +151,7 @@
             <h3 class="text-xl font-bold mb-0">Authentizität</h3>
             <p>Echtheit zieht genau die Menschen und Chancen an, die wirklich zu dir passen.
               Mut bedeutet nicht, keine Angst zu haben – sondern zu handeln, obwohl sie da ist.
-              Wissen, was du willst, ist der erste Schritt zu unerschütterlichem Selbstbewusstsein.
-              Du brauchst keine Erlaubnis, um groß zu träumen.  
-              Du musst dich nicht anpassen, um akzeptiert zu werden.  
-              Dein Wert hängt nicht davon ab, was andere denken –  
-              sondern davon, dass du an dich selbst glaubst.
+              
             </p>
           </div>
         </div>
@@ -257,12 +247,86 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 px-6 py-6 text-center">
-      <p>&copy; 2025 Unglaubliches Selbstbewusstsein. Alle Rechte vorbehalten.</p>
-    </footer>
+</div>
+
+    <footer class="w-full bg-gray-900 text-gray-400 py-12 border-t border-gray-700 mt-16"
+        x-data="animatedFooterTitle()" 
+        x-init="observeFooter($el)">
+
+  <div class="max-w-5xl mx-auto px-6 flex flex-col items-center space-y-6">
+
+    <!-- Branding -->
+    <h2 class="font-mono text-xs sm:text-base tracking-wide select-none flex space-x-1">
+      <template x-for="(letter, index) in footerText.split('')" :key="index">
+        <span 
+          x-text="letter"
+          x-show="visible[index]"
+          x-transition:enter="transition ease-out duration-400"
+          x-transition:enter-start="opacity-0 translate-y-1"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          class="inline-block"
+        ></span>
+      </template>
+    </h2>
+
+    <!-- Navigation unter Branding -->
+    <nav class="flex space-x-8 text-sm font-light">
+      <a href="#" class="text-gray-400">Impressum</a>
+      <a href="#" class="text-gray-400">Datenschutz</a>
+    </nav>
 
   </div>
+</footer>
+
+
+  <!-- Alpine.js Animationen -->
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('animatedTitle', () => ({
+        visible: [],
+        init() {
+          const letters = 'Asisza X'.split('');
+          this.visible = letters.map(() => false);
+          letters.forEach((_, i) => {
+            setTimeout(() => {
+              this.visible[i] = true;
+            }, i * 250);
+          });
+        }
+      }));
+
+      Alpine.data('animatedFooterTitle', () => ({
+        footerText: '© Asisza X. alle Rechte vorbehalten',
+        visible: [],
+        animationStarted: false,
+        init() {
+          // Setze alle Buchstaben unsichtbar, Animation startet erst beim Scrollen
+          this.visible = this.footerText.split('').map(() => false);
+        },
+        observeFooter(el) {
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !this.animationStarted) {
+                this.animationStarted = true;
+                this.footerText.split('').forEach((_, i) => {
+                  setTimeout(() => {
+                    this.visible[i] = true;
+                  }, i * 250);
+                });
+                observer.unobserve(el);
+              }
+            });
+          }, {
+            root: null,
+            threshold: 0.1
+          });
+          observer.observe(el);
+        }
+      }));
+    });
+  </script>
+
+
 
 </body>
 </html>
