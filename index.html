@@ -19,14 +19,30 @@
 
 
 
+<header class="relative bg-gray-900 text-gray-200 py-12 overflow-hidden">
+  <!-- Farbverlauf mit weniger Lila -->
+  <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/40 to-purple-900/50 opacity-85"></div>
+
+  <!-- Inhalt -->
+  <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
+    <h1 class="text-2xl font-semibold tracking-wide text-red-500 drop-shadow-sm mb-2">
+      Unchainyourstrengths.digital 
+    </h1>
+    <h3 class="text-lg font-medium text-gray-400 tracking-wide">
+      Unglaubliches Selbstbewusstsein
+    </h3>
+  </div>
+</header>
 
 
 
 
-    <!-- Header -->
-    <header class="bg-gray-900 text-gray-300 py-16">
-      <h1 class="text-3xl font-bold text-center">Unglaubliches Selbstbewusstsein</h1>
-    </header>
+
+
+
+
+
+    
 
       <!-- Mittelbereich -->
   <div class="max-w-7xl mx-auto">
@@ -245,11 +261,14 @@
   <!-- Container 1: Video rechts -->
 <section class="bg-white px-6 py-12 flex flex-col md:flex-row items-center gap-8">
   <div class="flex-1">
-    <h2 class="text-2xl font-semibold mb-4">Stehe fest wie ein Fels</h2>
+    <h2 class="text-2xl font-semibold mb-4">Dein Ziel. Dein Weg. Deine Regeln.</h2>
     <p class="leading-relaxed">
-      Egal wie stark der Wind weht – wer in seiner Mitte ruht, den wirft nichts um.  
-      Selbstvertrauen beginnt, wenn du aufhörst, dich klein zu machen,  
-      und anfängst, deinen Platz in der Welt einzunehmen.
+    <p class="leading-relaxed">
+    Kenne dein Ziel und folge deiner Bestimmung – ohne dich zu rechtfertigen und ohne um Erlaubnis zu fragen.  
+    Die Welt gehört denen, die mutig genug sind, ihren eigenen Weg zu gehen, auch wenn andere zweifeln.  
+    Mach den ersten Schritt – Du weißt, dass du mehr kannst, als du dir selbst zutraust.
+    </p>
+
     </p>
   </div>
   <div class="flex-1">
@@ -269,7 +288,7 @@
 
 </div>
 
-    <footer class="w-full bg-gray-900 text-gray-400 py-12 border-t border-gray-700 mt-16"
+    <footer class="w-full bg-gray-800 text-gray-200 py-12 border-t border-gray-700 mt-16"
         x-data="animatedFooterTitle()" 
         x-init="observeFooter($el)">
 
@@ -290,9 +309,10 @@
     </h2>
 
     <!-- Navigation unter Branding -->
-    <nav class="flex space-x-8 text-sm font-light">
+    <nav class="flex space-x-8 text-base font-light">
       <a href="#" class="text-gray-400">Impressum</a>
       <a href="#" class="text-gray-400">Datenschutz</a>
+      <a href="#" class="text-gray-400">Verbinden</a>
     </nav>
 
   </div>
@@ -310,7 +330,7 @@
           letters.forEach((_, i) => {
             setTimeout(() => {
               this.visible[i] = true;
-            }, i * 250);
+            }, i * 100);
           });
         }
       }));
