@@ -120,7 +120,7 @@
         </p>
       </div>
       <div class="flex-1">
-        <img src="55.jpg" alt="Symbol für Stärke" class="w-full h-auto rounded-lg">
+        <img src="55.jpg" alt="Symbol für Stärke" class="w-full h-auto rounded-lg" loading="lazy">
       </div>
     </section>
 
@@ -128,12 +128,13 @@
 <section class="px-4 py-16 flex flex-col md:flex-row items-center gap-8">
   <div class="flex-1 order-2 md:order-1">
     <video 
-      src="assets/videos/03.mp4" 
+      data-src="assets/videos/03.mp4"
+      preload="none"
       autoplay 
-  muted 
-  loop 
-  playsinline 
-  class="w-full h-auto rounded-lg"
+      muted 
+      loop 
+      playsinline 
+      class="lazy w-full h-auto rounded-lg"
     >
       Dein Browser unterstützt das Video-Tag nicht.
     </video>
@@ -151,6 +152,7 @@
     </p>
   </div>
 </section>
+
 
 
 
@@ -323,15 +325,16 @@
   </div>
   <div class="flex-1">
     <video 
-      src="assets/videos/02.mp4" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      class="w-full h-auto rounded-lg"
-    >
-      Dein Browser unterstützt das Video-Tag nicht.
-    </video>
+  data-src="assets/videos/02.mp4"
+  preload="none"
+  autoplay 
+  muted 
+  loop 
+  playsinline 
+  class="lazy w-full h-auto rounded-lg"
+>
+  Dein Browser unterstützt das Video-Tag nicht.
+</video>
   </div>
 </section>
 
@@ -399,6 +402,25 @@
       }, 5000); // Dauer der Animation + Puffer
     });
   </script>
+
+
+<script>
+  // Intersection Observer für Videos
+  const lazyVideos = document.querySelectorAll('video.lazy');
+
+  const videoObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+        video.src = video.dataset.src;
+        video.load();
+        observer.unobserve(video);
+      }
+    });
+  });
+
+  lazyVideos.forEach(video => videoObserver.observe(video));
+</script>
 
 </body>
 </html>
